@@ -9,6 +9,6 @@
 import UIKit
 
 class GameButton: UIButton {
-  @IBInspectable var row: Int = 0
+  @IBInspectable var row: Int = 0// giving interface builder it has a class called game button, it sees this, now recognizes this game button has extra properties/ attributes, want it to tell us what row and column, this gives us the info we need to know where the user clicked, when we drag it, we should change the class to GameButton, GameButton.row, Gamebutton.column
   @IBInspectable var col: Int = 0
 }
