@@ -39,7 +39,7 @@ class TicTacToeBrain {
             gameButton.setBackgroundImage(UIImage(systemName:"circle"), for: .normal)
            
             gameButton.isEnabled = false
-                if gameOver == false{
+                if gameOver == false {
                 
                 gameButton.isEnabled = false
             }

@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var playerTurn: UILabel!
     @IBOutlet weak var winnerLabel: UILabel!
     
+    @IBOutlet weak var resetButton: UIButton!
     var gameStart = TicTacToeBrain()
     
     
@@ -47,4 +48,9 @@ class ViewController: UIViewController {
         
         
 }
+//    @IBAction func reset(_ sender: UIButton) {
+//        
+//       gameStart.playerTurnStart(gameButton: <#T##GameButton#>)
+//    }
+    
 }
