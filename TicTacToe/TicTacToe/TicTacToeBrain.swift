@@ -17,13 +17,20 @@ class TicTacToeBrain {
                                ["","",""],
                                ["","",""]]
     var winner = ""
-    var  xcount = 0
+    var xcount = 0
     var ocount = 0
     var gameOver = false
     
-    func playerTurnStart(gameButton: GameButton) -> (String){
+    
+    func resetButton() {
+        winner = ""
+        xcount = 0
+        ocount = 0
+        gameOver = false
+    }
+    
+    func playerTurnStart(gameButton: GameButton) -> (String) {
         if turnCount % 2 == 0 {
-            
             pressedButtonMatrix[gameButton.row][gameButton.col] = "X"
             gameButton.isEnabled = false
             turnCount += 1; gameButton.setBackgroundImage(UIImage(systemName:"xmark"), for: .normal)
@@ -34,32 +41,31 @@ class TicTacToeBrain {
             
         } else {
             
-            pressedButtonMatrix[gameButton.row][gameButton.col] = "O"
+        pressedButtonMatrix[gameButton.row][gameButton.col] = "O"
             turnCount += 1
             gameButton.setBackgroundImage(UIImage(systemName:"circle"), for: .normal)
-           
+            
             gameButton.isEnabled = false
-                if gameOver == false {
+            if gameOver == false {
                 
                 gameButton.isEnabled = false
             }
-        
+            
             gameButton.imageView?.alpha = 1
             print(pressedButtonMatrix)
             //check winner
             return "Player One Turn"
         }
     }
-   
+    
     func disableButtons(gameButton: [GameButton]) {
-          for button in gameButton {
-     
-           button.isEnabled = false
-          
-      }
+        for button in gameButton {
+            
+            button.isEnabled = false
+            
+        }
     }
 
-    
     func winnerX() -> String {
         
         for i in 1..<pressedButtonMatrix.count{
@@ -77,13 +83,11 @@ class TicTacToeBrain {
         }
         return winner
     }
-    
-    
-    
+ 
     func winnerO() -> String {
-//        var winner = "no winner"
+        //        var winner = "no winner"
         for i in 0..<pressedButtonMatrix.count {
-            for j in 0..<pressedButtonMatrix[i].count{
+            for j in 0..<pressedButtonMatrix[i].count {
                 if pressedButtonMatrix[i][j] == "O" {
                     ocount += 1
                 }
@@ -97,47 +101,51 @@ class TicTacToeBrain {
         return winner
     }
     
-    
-    
-    
     func winnerOcol() -> String {
-    //        var winner = "no winner"
-            for i in 0..<pressedButtonMatrix.count {
-                for j in 0..<pressedButtonMatrix[i].count{
-                    if pressedButtonMatrix[j][i] == "O" {
-                        ocount += 1
-                    }
-                    if ocount == 3 {
-                        winner = "Player Two Won!!"
-                        gameOver = true
-                    }
+        //        var winner = "no winner"
+        for i in 0..<pressedButtonMatrix.count {
+            for j in 0..<pressedButtonMatrix[i].count{
+                if pressedButtonMatrix[j][i] == "O" {
+                    ocount += 1
                 }
-                ocount = 0
+                if ocount == 3 {
+                    winner = "Player Two Won!!"
+                    gameOver = true
+                }
             }
-            return winner
+            ocount = 0
         }
+        return winner
+    }
     
     
-    
-
     func winnerXcol() -> String {
-    //        var winner = "no winner"
-            for i in 0..<pressedButtonMatrix.count {
-                for j in 0..<pressedButtonMatrix[i].count{
-                    if pressedButtonMatrix[j][i] == "X" {
-                        xcount += 1
-                    }
-                    if xcount == 3 {
-                        winner = "Player One Won!!"
-                        gameOver = true
-                    }
+        //        var winner = "no winner"
+        for i in 0..<pressedButtonMatrix.count {
+            for j in 0..<pressedButtonMatrix[i].count{
+                if pressedButtonMatrix[j][i] == "X" {
+                    xcount += 1
                 }
-                xcount = 0
+                 if xcount == 3 {
+                    winner = "Player One Won!!"
+                    gameOver = true
+                }
             }
-            return winner
+            xcount = 0
         }
+        return winner
+    }
     
-
-   
+//    func diagonalWinner() -> String {
+//      for i in 0..<pressedButtonMatrix.count {
+//        for j in 0..<pressedButtonMatrix[i].count{
+//            if (pressedButtonMatrix[j] == pressedButtonMatrix[i]) {
+//                
+//            }else if pressedButtonMatrix[j] == pressedButtonMatrix[i] {
+//    }
+//    
+//            }
+//
+//}
+//}
 }
-

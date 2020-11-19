@@ -18,21 +18,18 @@ class ViewController: UIViewController {
     var gameStart = TicTacToeBrain()
     
     
-    
     //outlets don't go below the override
-//    var turnCount = 0
-//    var buttonPressedArray = [GameButton]
-  override func viewDidLoad() {
-    super.viewDidLoad()//can add color here so it would come up when it loads
-    // Do any additional setup after loading the view, typically from a nib.
-  }
+    //    var turnCount = 0
+    //    var buttonPressedArray = [GameButton]
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //can add color here so it would come up when it loads
+        // Do any additional setup after loading the view, typically from a nib.
+    }
     
-    
-//Actions, method, initializer/ prperty
+    //Actions, method, initializer/ prperty
     @IBAction func gameButtonPressed(_ gameButton: GameButton) { //refactored by right clicking, refactor,
-        
-        
         
         print("row \(gameButton.row) at column \(gameButton.col) was selected")
         playerTurn.text = gameStart.playerTurnStart(gameButton: gameButton)
@@ -43,14 +40,11 @@ class ViewController: UIViewController {
         winnerLabel.text = "\(gameStart.winnerOcol())"
         winnerLabel.text = "\(gameStart.winnerXcol())"
 
-        
-        
-        
-        
-}
-//    @IBAction func reset(_ sender: UIButton) {
-//        
-//       gameStart.playerTurnStart(gameButton: <#T##GameButton#>)
-//    }
+    }
     
+    
+//    @IBAction func reset(_ sender: UIButton) {
+//
+//    }
+//
 }
